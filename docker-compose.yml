@@ -1,0 +1,16 @@
+services:
+  bifrost:
+    image: maximhq/bifrost:v1.4.7
+    ports:
+      - "8080:8080"
+    volumes:
+      - bifrost-data:/app/data
+      - ./bifrost/config.json:/app/data/config.json:ro
+    environment:
+      - BIFROST_LOG_LEVEL=info
+      - ENCRYPTION_KEY=${BIFROST_ENCRYPTION_KEY}
+      - ADMIN_PASSWORD=${BIFROST_ADMIN_PASSWORD}
+    restart: unless-stopped
+
+volumes:
+  bifrost-data:

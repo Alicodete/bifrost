@@ -1,0 +1,57 @@
+{
+    "$schema": "https://www.getbifrost.ai/schema",
+  
+    "encryption_key": "env.BIFROST_ENCRYPTION_KEY",
+  
+    "auth_config": {
+      "is_enabled": true,
+      "admin_username": "admin",
+      "admin_password": "env.BIFROST_ADMIN_PASSWORD",
+      "disable_auth_on_inference": false
+    },
+  
+    "client": {
+      "enable_logging": true,
+      "drop_excess_requests": false
+    },
+  
+    "providers": {
+      "openai": {
+        "keys": [
+          {
+            "name": "openai-key-1",
+            "value": "env.OPENAI_API_KEY",
+            "models": ["gpt-4o-mini", "gpt-4o"],
+            "weight": 1.0
+          }
+        ]
+      }
+    },
+  
+    "config_store": {
+      "enabled": true,
+      "type": "postgres",
+      "config": {
+        "host": "env.PG_HOST",
+        "port": "5432",
+        "user": "env.PG_USER",
+        "password": "env.PG_PASSWORD",
+        "db_name": "env.PG_DB",
+        "ssl_mode": "disable"
+      }
+    },
+  
+    "logs_store": {
+      "enabled": true,
+      "type": "postgres",
+      "config": {
+        "host": "env.PG_HOST",
+        "port": 5432,
+        "user": "env.PG_USER",
+        "password": "env.PG_PASSWORD",
+        "db_name": "env.PG_DB",
+        "ssl_mode": "disable"
+      }
+    }
+  }
+  
