@@ -5,10 +5,7 @@ services:
       - "8080:8080"
     volumes:
       - bifrost-data:/app/data
-      - type: bind
-        source: ./config.json
-        target: /app/data/config.json
-        is_directory: false
+      - ./config.json:/app/data/config.json:ro
     environment:
       - BIFROST_LOG_LEVEL=info
       - BIFROST_ENCRYPTION_KEY=${SERVICE_PASSWORD_ENCRYPTION_KEY}
