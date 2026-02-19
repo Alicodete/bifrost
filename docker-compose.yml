@@ -5,11 +5,11 @@ services:
       - "8080:8080"
     volumes:
       - bifrost-data:/app/data
-      - ./bifrost/config.json:/app/data/config.json:ro
+      - config.json:/app/data/config.json:ro
     environment:
       - BIFROST_LOG_LEVEL=info
-      - ENCRYPTION_KEY=${BIFROST_ENCRYPTION_KEY}
-      - ADMIN_PASSWORD=${BIFROST_ADMIN_PASSWORD}
+      - SERVICE_PASSWORD_ENCRYPTION_KEY
+      - SERVICE_PASSWORD_ADMIN_PASSWORD
     restart: unless-stopped
 
 volumes:
