@@ -8,8 +8,8 @@ services:
       - ./config.json:/app/data/config.json:ro
     environment:
       - BIFROST_LOG_LEVEL=info
-      - BIFROST_ENCRYPTION_KEY=${SERVICE_PASSWORD_ENCRYPTION_KEY}
-      - BIFROST_ADMIN_PASSWORD=${SERVICE_PASSWORD_ADMIN_PASSWORD}
+      - BIFROST_ENCRYPTION_KEY=${SERVICE_PASSWORD_64_KEY}
+      - BIFROST_ADMIN_PASSWORD=${SERVICE_PASSWORD_ADMIN}
     restart: unless-stopped
 
 volumes:
